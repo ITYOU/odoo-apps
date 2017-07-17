@@ -9,7 +9,7 @@
     "application": True,
     "installable": True,
     "images":[
-      "images/odoo-ityou-simple-backend-theme.png"
+      "stactic/description/odoo-simple-backend-theme.png"
 	  ],
     "depends": ["web"],
     "category": "Themes/Backend",
