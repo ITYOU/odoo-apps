@@ -1,21 +1,20 @@
 {
-    'name':'Simple Backend Theme',
+    "name":"Simple Backend Theme",
     "summary": "Odoo 10.0 community backend theme",
-    'description': 'Lightweight backend theme for Odoo 10.0 community edition.',
-    'version':'1.0',
-    'author':'ITYOU/LM',
-    'website': "https://www.ityou.de",
+    "description": "Lightweight backend theme for Odoo 10.0 community edition.",
+    "version":"1.0",
+    "author":"ITYOU/LM",
+    "website": "https://www.ityou.de",
     "license": "LGPL-3",
-    'application': True,
+    "application": True,
     "installable": True,
-
-	  'images':[
-          'images/odoo-ityou-simple-backend-theme.png'
+    "images":[
+      "images/odoo-ityou-simple-backend-theme.png"
 	  ],
-    'depends': ['web'],
+    "depends": ["web"],
     "category": "Themes/Backend",
-    'data': [
-        'themes/simple/theme.xml',
+    "data": [
+        "themes/simple/theme.xml",
     ],
 }
 
