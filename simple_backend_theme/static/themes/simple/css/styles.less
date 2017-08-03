@@ -106,10 +106,11 @@ body.o_web_client {
       padding: 7px 7px 7px 7px;
       color: white;
     }
-    #slider_strip:hover {
-      background-color: lighten(@odoo-color, 20%);
+    &:hover {
+      background-color: @odoo-color, 20%;
     }
   }
+  
   .o_main {
     .o_sub_menu {
       flex: 0 0 200px;
@@ -144,17 +145,49 @@ body.o_web_client {
     }
   }
 
+  
+  
+  
+  
+  
+  // --- menu footer ---
+  > .o_main .o_sub_menu .o_sub_menu_footer > a > span {   
+  }
+
+  
   // --- footer ---
-  > .o_main .o_sub_menu .o_sub_menu_footer > a > span {    
+  footer {
+    border-top: 1px solid @ity-simple-separate-line-color;
+    background-color: white;
+    height: 95px;
+    margin: 0;
+  }
+  #slider_footer {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    bottom: 30px;
+    right: -100%;
+    margin-left: -35px;
+    border-radius: 4px 4px 0 0;
+    background-color: lighten(@odoo-color, 10%);
+    cursor: pointer;
+    z-index: 110;
+    &:hover {
+      background-color: @odoo-color;
+    }
+    i.fa {
+      font-size: 16px;
+      padding: 7px 7px 7px 8px;
+      color: white;
+    }    
+  }
+
+  // --- Lade ... ---
+  .o_loading {
+    padding: 4px 12px;
   }
 }
-
-// --- Lade ... ---
-.o_loading {
-    padding: 4px 12px;
-    
-}
-
 
 // ==== VIEW-SPECIFIC ==========================
 
@@ -237,6 +270,14 @@ body.o_web_client {
 
 // --- form view -----------------
 .o_form_view {
+  header {
+    button {
+      padding-top: 1px !important;
+      padding-bottom: 1px !important; // statt 5px
+      margin-top: 4px;
+      border-radius: 1px !important;
+    }
+  }
   .oe_title {
     > h1 {font-size: 20px}
     > h2 {font-size: 18px}
@@ -270,37 +311,57 @@ body.o_web_client {
     background-image: none;
   }
 
-  ul.oe_form_status li, 
-  ul.oe_form_status_clickable li {
-    background-color: @ity-simple-workflow-status;
-    background-image: none;
-  }  
-  ul.oe_form_status li:hover, 
-  ul.oe_form_status_clickable li:hover {
-    background-color: transparent;
-    background-image: none;
-  }  
-
-  ul.oe_form_status li > .arrow span, 
-  ul.oe_form_status_clickable li > .arrow span {
-    box-shadow: none;
-    background-color: @ity-simple-workflow-status; 
-    background: -webkit-gradient(linear, left top, right bottom, from(@ity-simple-workflow-status), to(@ity-simple-workflow-status));
-    background: -ms-linear-gradient(top, @ity-simple-workflow-status, @ity-simple-workflow-status);
-  }  
-  // das fuktioniert leider (noch) nicht 
-  ul.oe_form_status li > .arrow:hover, 
-  ul.oe_form_status_clickable li > .arrow:hover {
-    box-shadow: none;
-    background-color: @ity-simple-workflow-status;
-    background: -webkit-gradient(linear, left top, right bottom, from(@ity-simple-workflow-status), to(@ity-simple-workflow-status)) !important;
-    background: -ms-linear-gradient(top, @ity-simple-workflow-status, @ity-simple-workflow-status) !important;
-  }  
-  ul.oe_form_status li > .label, 
-  ul.oe_form_status_clickable li > .label {
-    text-shadow: none;
-    padding-top: 8px;
+  ul.oe_form_status,
+  ul.oe_form_status_clickable {
+    li {
+      background-color: @ity-simple-workflow-status;
+      background-image: none;      
+      > .arrow span {
+        box-shadow: none;
+        background-color: @ity-simple-workflow-status; 
+        background-image: none;        
+      }
+      > .label {
+        text-shadow: none;
+        padding-top: 8px;        
+      }
+      &:first-child > .label {
+        border-left: none;      
+      }
+      &.oe_active {
+        background-image: none;
+        > .label {
+          text-shadow: none;    
+        }
+        > .arrow span {
+          background: none;
+          background-color: lighten(@odoo-color,1%);
+        }
+      }
+    }
   }
+  ul.oe_form_status_clickable li:hover {
+    background-image: none !important;
+    background-color: lighten(@odoo-color,1%) !important;
+    text-shadow: none;    
+    color: white;
+    &.oe_active {
+      > .arrow span {
+        background: none;
+        background-color: lighten(@odoo-color,1%);        
+      }
+      
+    }
+    > .arrow span {
+      background: none;
+      background-color: lighten(@odoo-color,1%);
+    }
+    > .label {
+      text-shadow: none;
+      color: white;
+    }
+  }
+  
   .o_form_required.o_form_input, 
   .o_form_required .o_form_input, 
   .o_form_required.o_form_textarea, 
@@ -309,6 +370,8 @@ body.o_web_client {
   }
   
 }
+
+
 
 // --- message --
 .o_mail_thread .o_thread_message .o_thread_message_core.o_mail_note {
