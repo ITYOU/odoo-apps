@@ -1,2 +1,2 @@
-# A simple backend theme for odoo 10 community edition
+# A simple backend theme for odoo 10/11 community edition
 
